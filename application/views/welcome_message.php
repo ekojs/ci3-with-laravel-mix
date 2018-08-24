@@ -64,8 +64,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app.css"/>
+	<script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 </head>
 <body>
+<div class="modal modal-info fade" id="modal-success">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" name="txt_judul">Info</h4>
+              </div>
+              <div class="modal-body">
+                  <p name="txt_status"></p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary pull-left" name="btn_confirm">Save changes</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" name="btn_cancel">Close</button>
+              </div>
+          </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
 
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
