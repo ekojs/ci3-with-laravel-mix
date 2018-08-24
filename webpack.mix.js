@@ -11,9 +11,23 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/app.js', 'assets/js')
-    .sass('src/app.scss', 'assets/css')
-    .copyDirectory('src/img', 'assets/img');
+// mix.setPublicPath('./'); // Uncomment this if you use windows environment, don't forget to set your npm global binary location into your Environment System Path.
+mix.js('src/js/app.js', 'assets/js')
+    .sass('src/css/app.scss', 'assets/css')
+    .copyDirectory('src/img', 'assets/img')
+    .options({
+        fileLoaderDirs: { // To load fonts into assets folder
+            fonts: 'assets/fonts'
+        }
+    });
+    /**
+     * If you want to separate your javascript from main javascript app.js you can use combine to combine multiple javascript into another file. Please reorder as your need.
+     */
+    // .combine([
+    //    'node_modules/admin-lte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+    //     'node_modules/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'
+    // ], 'assets/js/vendor.js');
+
 
 // Full API
 // mix.js(src, output);
