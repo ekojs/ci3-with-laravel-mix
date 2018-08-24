@@ -14,6 +14,14 @@ npm install
 sudo ln -s /home/users/tmp/ci3-with-laravel-mix/node_modules/cross-env/dist/bin/cross-env.js /usr/local/bin/cross-env
 ```
 4. Or, you can install `cross-env` binary globally in your npm environment and setup your NPM global binary location into your `Environment System Path`. (For Windows)
+```
+npm install -g cross-env
+
+# Check global binary in npm
+npm -g list --depth=0
+
+# Please ensure there is cross-env in the list.
+```
 5. If everything OK with no Error, you can run webpack now.
 ```
 # For development purpose
@@ -31,4 +39,4 @@ npm run prod
 3. Customize this [app.js](https://github.com/ekojs/ci3-with-laravel-mix/blob/master/src/js/app.js).
 
 #### Note:
-Please feel free to add useful info to this repo or send your [issue](https://github.com/ekojs/ci3-with-laravel-mix/issues/new).
+Please feel free to comment, add useful info to this repo or send your [issue](https://github.com/ekojs/ci3-with-laravel-mix/issues/new).
