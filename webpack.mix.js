@@ -1,4 +1,6 @@
 let mix = require('laravel-mix');
+let ImageminPlugin = require('imagemin-webpack-plugin').default;
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,12 +16,36 @@ let mix = require('laravel-mix');
 // mix.setPublicPath('./'); // Uncomment this if you use windows environment, don't forget to set your npm global binary location into your Environment System Path.
 mix.js('src/js/app.js', 'assets/js')
     .sass('src/css/app.scss', 'assets/css')
-    .copyDirectory('src/img', 'assets/img')
+    // .copyDirectory('src/img', 'assets/img')
     .options({
         fileLoaderDirs: { // To load fonts into assets folder
             fonts: 'assets/fonts'
         }
+    })
+    .webpackConfig({
+        plugins: [
+            new CopyWebpackPlugin([{
+                from: 'src/img',
+                to: 'assets/img'
+            }]),
+            new ImageminPlugin({
+                disable: process.env.NODE_ENV !== 'production', // Disable during development
+                pngquant: {
+                    quality: '95-100',
+                },
+                test: /\.(jpe?g|png|gif|svg)$/i,
+            }),
+            new ImageminPlugin({
+                maxFileSize: 10000, // Only apply this one to files equal to or under 10kb
+                jpegtran: { progressive: false }
+            }),
+            new ImageminPlugin({
+                minFileSize: 10000, // Only apply this one to files over 10kb
+                jpegtran: { progressive: true }
+            })
+        ]
     });
+
     /**
      * If you want to separate your javascript from main javascript app.js you can use combine to combine multiple javascript into another file. Please reorder as your need.
      */
