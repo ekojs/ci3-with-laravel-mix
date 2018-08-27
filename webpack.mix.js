@@ -13,9 +13,14 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
  |
  */
 
-// mix.setPublicPath('./'); // Uncomment this if you use windows environment, don't forget to set your npm global binary location into your Environment System Path.
-mix.js('src/js/app.js', 'assets/js')
+mix.setPublicPath('./') // Uncomment this if you use windows environment, don't forget to set your npm global binary location into your Environment System Path.
+    .js('src/js/app.js', 'assets/js')
+    .react('src/js/app-react.jsx', 'assets/js')
     .sass('src/css/app.scss', 'assets/css')
+    // .combine([
+    //     'src/js/react.development.js',
+    //     'src/js/react-dom.development.js'
+    // ], 'assets/js/vendor.js')
     // .copyDirectory('src/img', 'assets/img')
     .options({
         fileLoaderDirs: { // To load fonts into assets folder
