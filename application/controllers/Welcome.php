@@ -25,4 +25,35 @@ class Welcome extends CI_Controller {
 	public function react() {
 		$this->load->view('welcome_react');
 	}
+
+	public function data() {
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode(array(
+				array(
+					"category" => "Sporting Goods",
+					"name" => "Baseball",
+					"price" => "$49.99",
+					"stocked" => true
+				),
+				array(
+					"category" => "Sporting Goods",
+					"name" => "Basket ball",
+					"price" => "$29.99",
+					"stocked" => true
+				),
+				array(
+					"category" => "Electronics",
+					"name" => "Iphone 6",
+					"price" => "$399.99",
+					"stocked" => false
+				),
+				array(
+					"category" => "Electronics",
+					"name" => "Xiomi X5",
+					"price" => "$99.99",
+					"stocked" => false
+				)
+			)));
+	}
 }

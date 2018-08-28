@@ -5,18 +5,14 @@
 	<meta charset="utf-8">
 	<title>Welcome to React in CodeIgniter</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app.css"/>
+    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
+	<script>
+		let base_url = '<?php echo base_url(); ?>';
+	</script>
 </head>
 <body>
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">Page Title</div>
-        </div>
-        <div class="panel-body">
-            <div id="root"></div>
-        </div>
-        <div class="panel-footer">Page Footer</div>
-    </div>
+    <div id="root"></div>
 </div>
 <script src="<?php echo base_url(); ?>assets/js/app-react.js"></script>
 </body>
