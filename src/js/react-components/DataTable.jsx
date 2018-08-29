@@ -65,7 +65,7 @@ export default class DataTable extends React.Component {
                                         <td>{i+1}</td>
                                         {Object.keys(v).map(
                                             (x,idx) => {
-                                                return <td key={'td-'+idx}>{v[x].toString()}</td>;
+                                                return <td key={'tr-'+i+'.td-'+idx}>{v[x].toString()}</td>;
                                             }
                                         )}
                                     </tr>

@@ -5,7 +5,6 @@
 	<meta charset="utf-8">
 	<title>Welcome to React in CodeIgniter</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app.css"/>
-    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 	<script>
 		let base_url = '<?php echo base_url(); ?>';
 	</script>
