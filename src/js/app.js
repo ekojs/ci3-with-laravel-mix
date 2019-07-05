@@ -8,7 +8,7 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-    require('bootstrap-sass');
+    require('bootstrap');
 } catch (e) {
     console.log(e);
 }
@@ -34,6 +34,7 @@ let Egen = {
     showMsg: {
         setTitle:"",
         setStatus:"",
+        setStyle:"primary",
         setBtnConfirm:"Confirm",
         showBtnConfirm: false,
         fnBtnConfirm: function(){
@@ -48,7 +49,17 @@ let Egen = {
             }else{
                 $("[name='btn_confirm']").hide();
             }
+            
+            if(!$('#modal-success').hasClass(this.setStyle)){
+                $('#modal-success').removeClass();
+                $("[name='btn_confirm']").removeClass();
+                $("[name='btn_cancel']").removeClass();
+                $("[name='btn_confirm']").addClass('btn btn-' + this.setStyle + ' mr-auto');
+                $("[name='btn_cancel']").addClass('btn btn-' + this.setStyle);
+                $('#modal-success').addClass('modal modal-' + this.setStyle + ' fade');
+            }
             $('#modal-success').modal('show');
+            
         },
         hide:function(){
             $("[name='txt_title']").text("");
